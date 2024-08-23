@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logout from "./Logout";
+import { FaShoppingCart } from "react-icons/fa";
 
-const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
+const NavBar = ({ isLoggedIn, setIsLoggedIn, cartCount }) => {
   const buttonStyle = "mr-5 text-lg font-bold py-1 px-6";
   return (
     <nav className="bg-gray-800 p-4">
@@ -22,7 +23,17 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
             </Link>
           </div>
         ) : (
-          <Logout setIsLoggedIn={setIsLoggedIn} />
+          <div className="flex items-center">
+            <Link to="/cart" className="text-white text-2xl mr-6 relative">
+              <FaShoppingCart />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+            <Logout setIsLoggedIn={setIsLoggedIn} />
+          </div>
         )}
       </div>
     </nav>
