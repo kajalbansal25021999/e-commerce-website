@@ -16,7 +16,7 @@ const Login = ({ setIsLoggedIn, isLoggedIn }) => {
           axios.get("/api/user", { withCredentials: true }).then((response) => {
             if (response.data.user) {
               setIsLoggedIn(true);
-              navigate("/home", { state: { user: response.data.user } });
+              navigate("/dashboard", { state: { user: response.data.user } });
             }
           });
         } else {

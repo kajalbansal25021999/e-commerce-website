@@ -7,7 +7,7 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl text-white font-bold">Tech Coffee Break</div>
+        <div className="text-2xl text-white font-bold">Shopping</div>
         {!isLoggedIn ? (
           <div className="flex">
             <Link to="/login">

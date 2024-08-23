@@ -26,12 +26,12 @@ function App() {
       <div>
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/dashboard" element={<Home />} />
           <Route
             path="/login"
             element={
               isLoggedIn ? (
-                <Navigate to="/home" />
+                <Navigate to="/dashboard" />
               ) : (
                 <Login setIsLoggedIn={setIsLoggedIn} />
               )
@@ -41,7 +41,7 @@ function App() {
             path="/signup"
             element={
               isLoggedIn ? (
-                <Navigate to="/home" />
+                <Navigate to="/dashboard" />
               ) : (
                 <Signup setIsLoggedIn={setIsLoggedIn} />
               )
