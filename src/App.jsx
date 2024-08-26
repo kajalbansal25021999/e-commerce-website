@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Cart from "./components/Cart";
 import NavBar from "./components/Navbar";
+import PlaceOrder from "./pages/PlaceOrder";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -67,6 +68,7 @@ function App() {
           }
         />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/placeOrder" element={<PlaceOrder />} />
         <Route
           path="*"
           element={<Navigate to={isLoggedIn ? "/dashboard" : "/login"} />}

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -34,6 +36,10 @@ const Cart = () => {
     );
   }
 
+  const handlePlaceOrder = () => {
+    navigate("/placeOrder", { state: { data: cart } });
+  };
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
@@ -60,6 +66,12 @@ const Cart = () => {
           );
         })}
       </div>
+      <button
+        className="mr-5 mt-5 text-lg font-bold py-1 px-6 bg-red-500 text-white"
+        onClick={handlePlaceOrder}
+      >
+        Place order
+      </button>
     </div>
   );
 };
